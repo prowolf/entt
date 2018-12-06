@@ -21,3 +21,5 @@
 * write/show how to work with missing components using and-strategies
 * write/show how to create an archetype based model on top of EnTT
 * mention hunter in the readme file, section packaging tools
+* monostate: use template variable to avoid {}
+* travis + windows is now available, try it
