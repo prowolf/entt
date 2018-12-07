@@ -1207,8 +1207,9 @@ public:
      *
      * Persistent views are the right choice to iterate entities when the number
      * of components grows up and the most of the entities have all the given
-     * components. TODO<br/>
-     * However they have also drawbacks:
+     * components. They are also the only type of views that supports filters
+     * without incurring in a loss of performance during iterations.<br/>
+     * However, persistent views have also drawbacks:
      *
      * * Each kind of persistent view requires a dedicated data structure that
      *   is allocated within the registry and it increases memory pressure.
@@ -1219,12 +1220,6 @@ public:
      * That being said, persistent views are an incredibly powerful tool if used
      * with care and offer a boost of performance undoubtedly.
      *
-     * @note
-     * Consider to use the `prepare` member function to initialize the internal
-     * data structures used by persistent views when the registry is still
-     * empty. Initialization could be a costly operation otherwise and it will
-     * be performed the very first time each view is created.
-     *
      * @sa view
      * @sa view<Entity, Component>
      * @sa persistent_view
@@ -1232,7 +1227,7 @@ public:
      * @sa runtime_view
      *
      * @tparam Component Types of components used to construct the view.
-     * TODO documentation
+     * @tparam Exclude Types of components used to filter the view.
      * @return A newly created persistent view.
      */
     template<typename... Component, typename... Exclude>
@@ -1284,8 +1279,9 @@ public:
      *
      * Persistent views are the right choice to iterate entities when the number
      * of components grows up and the most of the entities have all the given
-     * components. TODO<br/>
-     * However they have also drawbacks:
+     * components. They are also the only type of views that supports filters
+     * without incurring in a loss of performance during iterations.<br/>
+     * However, persistent views have also drawbacks:
      *
      * * Each kind of persistent view requires a dedicated data structure that
      *   is allocated within the registry and it increases memory pressure.
@@ -1296,12 +1292,6 @@ public:
      * That being said, persistent views are an incredibly powerful tool if used
      * with care and offer a boost of performance undoubtedly.
      *
-     * @note
-     * Consider to use the `prepare` member function to initialize the internal
-     * data structures used by persistent views when the registry is still
-     * empty. Initialization could be a costly operation otherwise and it will
-     * be performed the very first time each view is created.
-     *
      * @sa view
      * @sa view<Entity, Component>
      * @sa persistent_view
@@ -1309,7 +1299,7 @@ public:
      * @sa runtime_view
      *
      * @tparam Component Types of components used to construct the view.
-     * TODO documentation
+     * @tparam Exclude Types of components used to filter the view.
      * @return A newly created persistent view.
      */
     template<typename... Component, typename... Exclude>
